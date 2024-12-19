@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        #sidebar {
+            width: 320px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .controls {
+            padding: 16px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: center;
+        }
+
+        #voiceButton {
+            width: 48px;
+            height: 48px;
+            border-radius: 24px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #voiceButton:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        #voiceButton.listening {
+            animation: pulse 1.5s infinite;
+            background: #F44336;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .status {
+            font-size: 14px;
+            color: #666;
+        }
+
+        #messages {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .message {
+            padding: 8px 12px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background: #E3F2FD;
+            align-self: flex-end;
+        }
+
+        .ai-message {
+            background: #F5F5F5;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="header">
+            <h2>AI Assistant</h2>
+            <span class="status" id="connectionStatus">Disconnected</span>
+        </div>
+        
+        <div class="content">
+            <div id="messages">
+                <!-- Messages will be inserted here -->
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="voiceButton" title="Click to start/stop voice">
+                🎤
+            </button>
+        </div>
+    </div>
+    <script type="module" src="./main.ts"></script>
+</body>
+</html> 

@@ -170,3 +170,16 @@ dist
 
 .dev.vars
 .wrangler/
+
+# Project private directory
+private/
+private/*
+
+# Extension specific
+extension/node_modules/
+extension/dist/
+extension/.env*
+
+# Temporary files
+*.tmp
+*.temp
