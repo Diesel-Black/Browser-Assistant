@@ -1,36 +1,88 @@
-# Client Side Tool Calling with the OpenAI WebRTC Realtime API
+# Web AI Assistant - Browser Extension
 
-This project is a [Cloudflare Workers](https://developers.cloudflare.com) app using [Hono](https://honojs.dev) to relay the [OpenAI Realtime API](https://platform.openai.com/docs/api-reference/realtime) over WebRTC. The main files are just [static assets](https://developers.cloudflare.com/workers/static-assets/).
+A Chrome extension that brings real-time AI voice interaction to your browser, powered by OpenAI's WebRTC API. This extension allows you to interact with an AI assistant through voice commands while browsing, enabling dynamic webpage manipulation and automation.
 
-[<img src="https://img.youtube.com/vi/TcOytsfva0o/0.jpg">](https://youtu.be/TcOytsfva0o "Client Side Tool Calling with the OpenAI WebRTC Realtime API")
+## Features
 
+- 🎤 Real-time voice interaction with AI
+- 🔄 Animated sidebar interface
+- 🛠️ Extensible tool system for webpage manipulation
+- 🔒 Privacy-first design with BYOK (Bring Your Own Key)
+- 🌐 Cross-browser compatibility (planned)
 
-## Develop
+## Project Structure
 
-Copy [.dev.vars.example](./.dev.vars.example) to `.dev.vars` and fill out your OpenAI API Key.
+```
+Browser-Assistant/
+├── extension/           # Chrome extension source code
+│   ├── src/            # TypeScript source files
+│   ├── dist/           # Built extension files
+│   └── icons/          # Extension icons
+├── infrastructure/     # Backend infrastructure code
+│   └── serverless/     # Serverless functions
+└── private/           # Private documentation and planning
+    └── docs/          # Project documentation
+```
 
-Install your dependencies
+## Development
 
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Chrome browser
+
+### Installation
+
+1. Clone the repository:
 ```bash
+git clone https://github.com/your-username/Browser-Assistant.git
+cd Browser-Assistant
+```
+
+2. Install dependencies:
+```bash
+cd extension
 npm install
 ```
 
-Run local server
-
+3. Build the extension:
 ```bash
-npm run dev
+npm run build
 ```
 
-## Deploy
+4. Load the extension in Chrome:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked"
+   - Select the `extension/dist` directory
 
-Upload your secret
+### Development Commands
 
-```bash
-npx wrangler secret put OPENAI_API_KEY
-```
+- `npm run dev` - Start development mode with hot reload
+- `npm run build` - Build the extension
+- `npm run watch` - Build and watch for changes
+- `npm run lint` - Run linter
+- `npm run format` - Format code
 
-```bash
-npm run deploy
-```
+## Usage
 
-The hand is a [HiWonder AI Hand](https://www.hiwonder.com/products/aihand?variant=41022039654487). AI and I reverse-engineered the mobile app to make it work over Bluetooth, see [the code in hand.js](./public/hand.js)
+1. Click the extension icon in Chrome
+2. Use the microphone button to start voice interaction
+3. Speak commands to interact with the current webpage
+4. Watch as the AI assistant executes your commands in real-time
+
+## Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request.
+
+## License
+
+[MIT License](LICENSE)
+
+## Acknowledgments
+
+This project builds upon the [OpenAI WebRTC API](https://platform.openai.com/docs/api-reference/realtime) and was inspired by the original prototype demonstrating real-time AI interactions.
+
+---
+Built with 🧡 using TypeScript, WebRTC, and the OpenAI Realtime API
